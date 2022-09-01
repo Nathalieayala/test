@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotly Assignment</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./data.js"></script>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        var y = data.map(e => Number(e.Outputs));
+        var x = data.map(e => e.Year)
+
+        var trace1 = {
+            x: x,
+            y: y,
+            mode: 'markers',
+            type: 'bar',
+            marker: {
+                color: y, colorscale: "Greens"
+            }
+
+        };
+        var layout = {
+            title: {
+                text: 'NC Total Farm Output'
+            },
+            xaxis: {
+                title: {
+                    text: 'Year'
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Farm Outputs'
+                }
+            }
+        }
+    var data = [trace1];
+
+    Plotly.newPlot('myDiv', data, layout);
+
+    </script>
+# This bar plot shows the total crop out put from the years 1960-2004.
+ The plot shows how over the years, the output is increasing but it
+ the color scheme does not stress its improtance. Also, the limitations
+ with the bar plot, is with too much information (for instance all states)
+ it would be harder to read the plot. 
+</body>
+</html>
